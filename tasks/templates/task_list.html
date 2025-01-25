@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Task List</title>
+</head>
+<body>
+    <h1>My Tasks</h1>
+    <a href="{% url 'add_task' %}">Add New Task</a>
+    <ul>
+        {% for task in tasks %}
+        <li>
+            {{ task.title }} - {{ task.category }} - {% if task.is_completed %}Done{% else %}Pending{% endif %}
+            <a href="{% url 'toggle_task_completion' task.id %}">Toggle Completion</a>
+            <a href="{% url 'edit_task' task.id %}">Edit</a>
+        </li>
+        {% empty %}
+        <li>No tasks available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

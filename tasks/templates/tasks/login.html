@@ -1,0 +1,13 @@
+<!-- login.html -->
+{% extends 'base_generic.html' %}
+
+{% block content %}
+    <h2>Login</h2>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            {{ form.as_p }}
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+{% endblock %}
